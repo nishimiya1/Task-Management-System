@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="main.css" />
+
 </head>
 
 <body class="register">
@@ -20,13 +21,13 @@
                 </div>
                 <form action="/account/register" method="post" novalidate class="form-class">
                     <div class="login">
-                        <input type="text" class="user-input" id="Username" name="Username" required minlength="3"
-                            placeholder="User Name" aria-label="User Name*">
+                        <input type="Username" class="user-input" id="Username" name="Username" required minlength="3"
+                            placeholder="" aria-label="User Name">
                         <label for="Username" class="user-label">User Name*</label>
                     </div>
                     <div class="login">
                         <input type="password" class="user-input" id="Password" name="Password"
-                            autocomplete="current-password" required minlength="8" placeholder="Password"
+                            autocomplete="current-password" required minlength="8" placeholder=""
                             aria-label="Password*">
                         <label for="Password" class="user-label password-label">Password*</label>
                         <button class="login-form show-password" type="button" aria-label="Show password">
@@ -49,13 +50,27 @@
                     </div>
                     <div class="login">
                         <input type="email" class="user-input" id="Email" name="Email" autocomplete="email"
-                            placeholder="Email Address " aria-label="Email Address*">
+                            placeholder="" aria-label="Email Address*">
                         <label for="Email" class="user-label">Email Address*</label>
                     </div>
                     <div class="login">
-                        <input type="text" class="user-input" id="FullName" name="FullName" placeholder="Full Name "
+                        <input type="FullName" class="user-input" id="FullName" name="FullName" placeholder=""
                             aria-label="Full Name*">
-                        <label for="FullName" class="user-label">FullName*</label>
+                        <label for="FullName" class="user-label">Full Name*</label>
+                    </div>
+                    <div class="login">
+                        <label for="DepartmentID" class="select-label">Department*</label>
+                        <select class="form-select" id="DepartmentID" onchange="adjustRoles()">
+                            <option value="1">IT</option>
+                            <option value="2">Marketing</option>
+                            <option value="3">HR</option>
+                        </select>
+                    </div>
+                    <div class="login">
+                        <label for="RoleID" class="select-label">Role*</label>
+                        <select class="form-select" id="RoleID">
+
+                        </select>
                     </div>
                     <button type="submit" class="login-form submit-button submit-display">Register</button>
                 </form>
@@ -64,6 +79,7 @@
     </div>
 
     <script src="main.js"></script>
+
 </body>
 
 </html>
