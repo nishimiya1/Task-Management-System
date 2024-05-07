@@ -155,6 +155,10 @@ button {
 .submit-display {
   display: grid;
 }
+.submit-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
 @media (min-width: 740px) {
   .container {
     justify-content: center;
