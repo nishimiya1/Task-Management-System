@@ -84,6 +84,11 @@ button {
   line-height: 1.35;
   color: #000000;
   padding: 0 30% 0 0;
+  transition: border-color 0.3s;
+}
+.user-input:focus {
+  border-bottom: 1px solid #000000;
+  outline: none; /* Remove default focus outline */
 }
 .user-label {
   position: absolute;
@@ -97,6 +102,13 @@ button {
   line-height: 1.35;
   white-space: nowrap;
 }
+.user-input:focus + .user-label,
+.user-input:not(:placeholder-shown) + .user-label {
+  left: 100; /* Move label to the left when input is focused or has content */
+  left: 80%; /* Move label to above the input */
+  font-size: 12px; /* Reduce font size for better fit */
+  color: #000; /* Change color to black when active */
+}
 .password-label {
   padding-right: 32px;
 }
@@ -104,6 +116,25 @@ button {
   position: absolute;
   left: 100%;
   transform: translate(-100%);
+}
+.select-label {
+  position: absolute;
+  left: 0;
+  top: -20px; /* Adjust this value as needed to position the label above the select box */
+  font-family: "Omnes Light";
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.user-input:focus + .select-label,
+.user-input:not(:placeholder-shown) + .select-label {
+  left: 100; /* Move label to the left when input is focused or has content */
+  bottom: 100%; /* Move label to above the input */
+  font-size: 12px; /* Reduce font size for better fit */
+  color: #000; /* Change color to black when active */
 }
 .submit-button {
   font-family: "Omnes Light";
