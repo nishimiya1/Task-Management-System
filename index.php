@@ -6,28 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Management System</title>
     <link rel="stylesheet" href="main.css" />
+
 </head>
 
-<body>
+<body class="login">
     <div class="container">
         <div>
             <div class="form-container">
                 <div class="home-form">
-                    <a aria-current="page" href="/" class="login-form login-decoration">Login</a>
-                    <a href="/signup.php" class="signup-form">Register</a>
+
+                    <a aria-current="page" href="index.php" class="login-form login-decoration">Login</a>
+                    <a href="signupPage.php" class="login-form">Register</a>
                 </div>
-                <form method="post" action="/account/login" class="form-class">
+                <form method="post" action="/account/login" novalidate class="form-class">
                     <div class="login">
                         <input class="user-input" type="email" id="email" name="email" autocomplete="email"
-                            placeholder="Email Address*" required aria-label="Email Address" enterkeyhint="next">
-                        <label for="email" class="user-label"></label>
+                            placeholder="" required aria-label="Email Address" enterkeyhint="next">
+                        <label for="email" class="user-label">Email Address*</label>
                     </div>
                     <div>
                         <div class="login">
                             <input class="user-input" type="password" id="password" name="password"
-                                autocomplete="current-password" placeholder="Password*" required aria-label="Password*"
+                                autocomplete="current-password" placeholder="" required aria-label="Password*"
                                 minlength="8">
-                            <label for="password" class="user-label password-label"></label>
+                            <label for="password" class="user-label password-label">Password*</label>
                             <button class="login-form show-password" type="button" aria-label="Show Password">
                                 <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -53,6 +55,7 @@
         </div>
     </div>
     <script src="main.js"></script>
+
 </body>
 
 </html>
