@@ -38,7 +38,8 @@ button {
 .home-form {
   font-family: "Omnes Light";
   font-style: italic;
-  font-weight: 600;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
   font-size: 20px;
   line-height: 1.2;
   display: flex;
@@ -63,18 +64,7 @@ button {
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
 }
-.signup-form {
-  background: none;
-  display: inline-grid;
-  white-space: nowrap;
-  cursor: pointer;
-  color: currentColor;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  letter-spacing: inherit;
-  line-height: inherit;
-}
+
 .form-class {
   display: grid;
   gap: 24px;
@@ -87,10 +77,6 @@ button {
   background: none;
   border: none;
   border-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
   border-bottom: 1px solid #000000;
   font-family: "Omnes Light";
   font-weight: 400;
@@ -103,10 +89,6 @@ button {
   position: absolute;
   left: 0;
   transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
   font-family: "Omnes Light";
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -122,10 +104,6 @@ button {
   position: absolute;
   left: 100%;
   transform: translate(-100%);
-  -webkit-transform: translate(-100%);
-  -moz-transform: translate(-100%);
-  -ms-transform: translate(-100%);
-  -o-transform: translate(-100%);
 }
 .submit-button {
   font-family: "Omnes Light";
