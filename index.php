@@ -26,7 +26,7 @@
                     </div>
                     <div>
                         <div class="login">
-                            <input class="user-input" type="password" id="password" name="password"
+                            <input class="user-input" type="password" id="Password" name="Password"
                                 autocomplete="current-password" placeholder="" required aria-label="Password*"
                                 minlength="8">
                             <label for="password" class="user-label password-label">Password*</label>
