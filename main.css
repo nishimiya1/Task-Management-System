@@ -117,6 +117,11 @@ button {
   left: 100%;
   transform: translate(-100%);
 }
+
+.show-passwordIcon {
+  fill: black; /* Initial color */
+}
+
 .select-label {
   position: absolute;
   left: 0;
@@ -151,6 +156,10 @@ button {
   justify-content: center;
   align-items: center;
   transition: color 0.2s, background 0.2s;
+  -webkit-transition: color 0.2s, background 0.2s;
+  -moz-transition: color 0.2s, background 0.2s;
+  -ms-transition: color 0.2s, background 0.2s;
+  -o-transition: color 0.2s, background 0.2s;
 }
 .submit-display {
   display: grid;
