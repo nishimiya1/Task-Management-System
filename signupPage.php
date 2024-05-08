@@ -60,7 +60,7 @@
                     </div>
                     <div class="login">
                         <label for="DepartmentID" class="select-label">Department*</label>
-                        <select class="form-select" id="DepartmentID" onchange="adjustRoles()">
+                        <select class="form-select" id="DepartmentID">
                             <option value="1">IT</option>
                             <option value="2">Marketing</option>
                             <option value="3">HR</option>
@@ -69,7 +69,6 @@
                     <div class="login">
                         <label for="RoleID" class="select-label">Role*</label>
                         <select class="form-select" id="RoleID">
-
                         </select>
                     </div>
                     <button type="submit" class="login-form submit-button submit-display">Register</button>
@@ -79,6 +78,7 @@
     </div>
 
     <script src="main.js"></script>
+    <script src="register.js"></script>
 
 </body>
 
