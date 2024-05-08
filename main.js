@@ -1,42 +1,22 @@
-function adjustRoles() {
-    var departmentSelect = document.getElementById('DepartmentID');
-    var roleSelect = document.getElementById('RoleID');
-
-    // Clear previous options
-    roleSelect.innerHTML = '';
-
-    // Get selected department value
-    var departmentValue = departmentSelect.value;
-
-    // Add options based on department
-    if (departmentValue === '1') { // IT department
-        var roles = ['Developer', 'Admin', 'Designer'];
-        for (var i = 0; i < roles.length; i++) {
-            var option = document.createElement('option');
-            option.text = roles[i];
-            option.value = roles[i];
-            roleSelect.appendChild(option);
-        }
-    } else if (departmentValue === '2') { // Marketing department
-        var roles = ['Marketing Specialist', 'Marketing Manager'];
-        for (var i = 0; i < roles.length; i++) {
-            var option = document.createElement('option');
-            option.text = roles[i];
-            option.value = roles[i];
-            roleSelect.appendChild(option);
-        }
-    } else if (departmentValue === '3') { // HR department
-        var roles = ['HR Assistant', 'HR Manager'];
-        for (var i = 0; i < roles.length; i++) {
-            var option = document.createElement('option');
-            option.text = roles[i];
-            option.value = roles[i];
-            roleSelect.appendChild(option);
+document.addEventListener('DOMContentLoaded', function () {
+    // Your JavaScript code here
+    document.querySelector('.show-password').addEventListener('click', function () {
+        togglePasswordVisibility();
+        this.classList.toggle('show-passwordIcon'); // Toggle the 'show-passwordIcon' class
+        toggleSvgColor();
+    });
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('Password');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+        } else {
+            passwordInput.type = 'password';
         }
     }
-}
+    function toggleSvgColor() {
+        const svg = document.querySelector('.show-password svg');
+        svg.classList.toggle('show-passwordIcon'); // Toggle the 'show-passwordIcon' class
+    }
 
-// Call the adjustRoles function when the page loads
-window.onload = function () {
-    adjustRoles();
-};
+
+});
