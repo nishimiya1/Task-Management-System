@@ -18,18 +18,18 @@
                     <a aria-current="page" href="index.php" class="login-form login-decoration">Login</a>
                     <a href="signupPage.php" class="login-form">Register</a>
                 </div>
-                <form method="post" action="/account/login" novalidate class="form-class">
+                <form method="POST" action="/account/login" novalidate class="form-class">
                     <div class="login">
-                        <input class="user-input" type="email" id="email" name="email" autocomplete="email"
+                        <input class="user-input" type="email" id="Email" name="Email" autocomplete="Email"
                             placeholder="" required aria-label="Email Address" enterkeyhint="next">
-                        <label for="email" class="user-label">Email Address*</label>
+                        <label for="Email" class="user-label">Email Address*</label>
                     </div>
                     <div>
                         <div class="login">
                             <input class="user-input" type="password" id="Password" name="Password"
                                 autocomplete="current-password" placeholder="" required aria-label="Password*"
                                 minlength="8">
-                            <label for="password" class="user-label password-label">Password*</label>
+                            <label for="Password" class="user-label password-label">Password*</label>
                             <button class="login-form show-password" type="button" aria-label="Show Password">
                                 <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
