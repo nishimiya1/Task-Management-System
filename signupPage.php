@@ -1,3 +1,34 @@
+<?php
+
+include 'dbconnect.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    //Extract form data
+    $Username = $_POST['Username'];
+    $Password = $_POST['Password'];
+    $Email = $_POST['Email'];
+    $FullName = $_POST['FullName'];
+    $DepartmentID = $_POST['DepartmentID'];
+    $RoleID = $_POST['RoleID'];
+
+    // Prepare SQL statement to insert data into Users table
+    $insert_user_stmt = $conn->prepare("INSERT INTO Users (Username, Password, Email, FullName, DepartmentID, RoleID) VALUES (?, ?, ?, ?, ?, ?)");
+    $insert_user_stmt->bind_param("ssssii", $Username, $Password, $Email, $FullName, $DepartmentID, $RoleID);
+
+    // Execute SQL statement
+    if ($insert_user_stmt->execute()) {
+        echo "Form data successfully submitted!";
+    } else {
+        echo "Error: " . $insert_user_stmt->error;
+    }
+
+    // Close statement
+    $insert_user_stmt->close();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,14 +50,14 @@
 
                     <a href="signupPage.php" class="login-form login-decoration">Register</a>
                 </div>
-                <form action="/account/register" method="post" novalidate class="form-class">
+                <form id="signupForm" method="POST" novalidate class="form-class">
                     <div class="login">
-                        <input type="Username" class="user-input" id="Username" name="Username" required minlength="3"
-                            placeholder="" aria-label="User Name">
+                        <input type="Username" class="user-input" id="Username" name="Username" autocomplete="Username"
+                            required minlength="3" placeholder="" aria-label="User Name">
                         <label for="Username" class="user-label">User Name*</label>
                     </div>
                     <div class="login">
-                        <input type="password" class="user-input" id="Password" name="Password"
+                        <input type="Password" class="user-input" id="Password" name="Password"
                             autocomplete="current-password" required minlength="8" placeholder=""
                             aria-label="Password*">
                         <label for="Password" class="user-label password-label">Password*</label>
@@ -49,7 +80,7 @@
                         </button>
                     </div>
                     <div class="login">
-                        <input type="email" class="user-input" id="Email" name="Email" autocomplete="email"
+                        <input type="Email" class="user-input" id="Email" name="Email" autocomplete="Email"
                             placeholder="" aria-label="Email Address*">
                         <label for="Email" class="user-label">Email Address*</label>
                     </div>
@@ -60,7 +91,7 @@
                     </div>
                     <div class="login">
                         <label for="DepartmentID" class="select-label">Department*</label>
-                        <select class="form-select" id="DepartmentID">
+                        <select class="form-select" id="DepartmentID" name="DepartmentID">
                             <option value="1">IT</option>
                             <option value="2">Marketing</option>
                             <option value="3">HR</option>
@@ -68,7 +99,9 @@
                     </div>
                     <div class="login">
                         <label for="RoleID" class="select-label">Role*</label>
-                        <select class="form-select" id="RoleID">
+                        <select class="form-select" id="RoleID" name="RoleID">
+
+
                         </select>
                     </div>
                     <button type="submit" class="login-form submit-button submit-display">Register</button>
@@ -79,6 +112,9 @@
 
     <script src="main.js"></script>
     <script src="register.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
 
