@@ -1,9 +1,10 @@
 <?php
-
 include 'dbconnect.php';
 
+$response = ['success' => false, 'message' => ''];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-    //Extract form data
+    // Extract form data
     $Username = $_POST['Username'];
     $Password = $_POST['Password'];
     $Email = $_POST['Email'];
@@ -17,17 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     // Execute SQL statement
     if ($insert_user_stmt->execute()) {
-        echo "Form data successfully submitted!";
+        $response['success'] = true;
+        $response['message'] = 'Form data successfully submitted!';
     } else {
-        echo "Error: " . $insert_user_stmt->error;
+        $response['message'] = "Error: " . $insert_user_stmt->error;
     }
 
     // Close statement
     $insert_user_stmt->close();
+
+    // Return response as JSON
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit;
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="main.css" />
-
 </head>
 
 <body class="register">
@@ -45,19 +49,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         <div>
             <div class="form-container">
                 <div class="home-form">
-
                     <a href="index.php" class="login-form">Login</a>
-
                     <a href="signupPage.php" class="login-form login-decoration">Register</a>
                 </div>
                 <form id="signupForm" method="POST" novalidate class="form-class">
                     <div class="login">
-                        <input type="Username" class="user-input" id="Username" name="Username" autocomplete="Username"
+                        <input type="text" class="user-input" id="Username" name="Username" autocomplete="Username"
                             required minlength="3" placeholder="" aria-label="User Name">
                         <label for="Username" class="user-label">User Name*</label>
                     </div>
                     <div class="login">
-                        <input type="Password" class="user-input" id="Password" name="Password"
+                        <input type="password" class="user-input" id="Password" name="Password"
                             autocomplete="current-password" required minlength="8" placeholder=""
                             aria-label="Password*">
                         <label for="Password" class="user-label password-label">Password*</label>
@@ -80,13 +82,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                         </button>
                     </div>
                     <div class="login">
-                        <input type="Email" class="user-input" id="Email" name="Email" autocomplete="Email"
-                            placeholder="" aria-label="Email Address*">
+                        <input type="email" class="user-input" id="Email" name="Email" autocomplete="Email"
+                            placeholder="" aria-label="Email Address*" required>
                         <label for="Email" class="user-label">Email Address*</label>
                     </div>
                     <div class="login">
-                        <input type="FullName" class="user-input" id="FullName" name="FullName" placeholder=""
-                            aria-label="Full Name*">
+                        <input type="text" class="user-input" id="FullName" name="FullName" placeholder=""
+                            aria-label="Full Name*" required>
                         <label for="FullName" class="user-label">Full Name*</label>
                     </div>
                     <div class="login">
@@ -100,8 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <div class="login">
                         <label for="RoleID" class="select-label">Role*</label>
                         <select class="form-select" id="RoleID" name="RoleID">
-
-
+                            <!-- Options will be populated by JavaScript -->
                         </select>
                     </div>
                     <button type="submit" class="login-form submit-button submit-display">Register</button>
@@ -109,13 +110,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             </div>
         </div>
     </div>
-
     <script src="main.js"></script>
     <script src="register.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 </body>
 
 </html>
